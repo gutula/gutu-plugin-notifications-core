@@ -1,0 +1,39 @@
+{
+  "name": "@plugins/notifications-core",
+  "version": "0.1.0",
+  "private": false,
+  "type": "module",
+  "main": "./dist/src/index.js",
+  "types": "./dist/src/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/src/index.d.ts",
+      "default": "./dist/src/index.js"
+    }
+  },
+  "scripts": {
+    "build": "bunx tsc -p tsconfig.build.json",
+    "typecheck": "bunx tsc -p tsconfig.json --noEmit",
+    "lint": "bunx eslint .",
+    "test": "bun test",
+    "test:unit": "bun test tests/unit",
+    "test:contracts": "bun test tests/contracts"
+  },
+  "dependencies": {
+    "@platform/admin-contracts": "workspace:*",
+    "@platform/communication": "workspace:*",
+    "@platform/db-drizzle": "workspace:*",
+    "@platform/email-templates": "workspace:*",
+    "@platform/kernel": "workspace:*",
+    "@platform/permissions": "workspace:*",
+    "@platform/schema": "workspace:*",
+    "@platform/ui-shell": "workspace:*",
+    "@plugins/auth-core": "workspace:*",
+    "@plugins/org-tenant-core": "workspace:*",
+    "@plugins/role-policy-core": "workspace:*",
+    "@plugins/audit-core": "workspace:*",
+    "drizzle-orm": "^0.45.2",
+    "react": "^19.1.0",
+    "zod": "^4.0.0"
+  }
+}
