@@ -4,5 +4,17 @@
   "type": "module",
   "workspaces": [
     "framework/builtin-plugins/*"
-  ]
+  ],
+  "scripts": {
+    "build": "bun --cwd framework/builtin-plugins/notifications-core run build",
+    "typecheck": "bun --cwd framework/builtin-plugins/notifications-core run typecheck",
+    "lint": "bun --cwd framework/builtin-plugins/notifications-core run lint",
+    "test": "bun --cwd framework/builtin-plugins/notifications-core run test",
+    "test:contracts": "bun --cwd framework/builtin-plugins/notifications-core run test:contracts",
+    "test:unit": "bun --cwd framework/builtin-plugins/notifications-core run test:unit",
+    "test:integration": "bun --cwd framework/builtin-plugins/notifications-core test tests/integration",
+    "test:migrations": "bun --cwd framework/builtin-plugins/notifications-core test tests/migrations",
+    "docs:summary": "node scripts/docs-summary.mjs",
+    "docs:check": "node scripts/docs-check.mjs"
+  }
 }

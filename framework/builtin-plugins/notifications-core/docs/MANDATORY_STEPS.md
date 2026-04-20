@@ -1,18 +1,21 @@
 # Notifications Core Mandatory Steps
 
-## Never skip
+## Before shipping a change
 
-- _Document the sequence requirements that must always be followed._
+1. Update the public contract docs in `README.md` and `DEVELOPER.md`.
+2. Keep the nested docs under `framework/builtin-plugins/notifications-core/docs` synchronized with the same truth.
+3. Run the repo-local verification commands:
+   - `bun run build`
+   - `bun run typecheck`
+   - `bun run lint`
+   - `bun run test`
+   - `bun run docs:check`
+4. Run any extra lanes present for this plugin: `test:unit`, `test:contracts`.
+5. Re-check that the plugin is still described through explicit command/resource/job/workflow contracts and not through undocumented hooks.
 
-## Human approvals and checkpoints
+## Before integrating from another plugin
 
-- Document when approvals are required, who can grant them, and what evidence must be present.
-
-## Observability and audit
-
-- Document the records, events, or notifications that must exist after each sensitive step.
-
-## Agent operating notes
-
-- Agents may recommend actions, but they must follow the same mandatory steps and approval gates as humans.
-- Agents must never invent missing business facts; they should ask for clarification or cite the knowledge source.
+1. Depend on the manifest ID `notifications-core` and the package import `@plugins/notifications-core`.
+2. Use exported actions and resources first.
+3. Treat jobs, workflows, and lifecycle envelopes as explicit contracts only when they are actually exported here.
+4. Preserve the current non-goal boundary instead of building cross-plugin shortcuts that the repo does not advertise.

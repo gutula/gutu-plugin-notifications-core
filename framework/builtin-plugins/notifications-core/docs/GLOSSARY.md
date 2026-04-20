@@ -1,26 +1,18 @@
 # Notifications Core Glossary
 
-## Terms
-
-### notifications.messages
-
-_Define this entity in plain business language._
-
-- `channel`: Add the field meaning and how operators use it.
-- `createdAt`: Add the field meaning and how operators use it.
-- `deliveryMode`: Add the field meaning and how operators use it.
-- `id`: Add the field meaning and how operators use it.
-- `priority`: Add the field meaning and how operators use it.
-- `providerRoute`: Add the field meaning and how operators use it.
-- `recipientRef`: Add the field meaning and how operators use it.
-- `sendAt`: Add the field meaning and how operators use it.
-- `status`: Add the field meaning and how operators use it.
-- `templateKey`: Add the field meaning and how operators use it.
-- `tenantId`: Add the field meaning and how operators use it.
-
-
-## Domain shortcuts to avoid
-
-- Expand internal jargon that would confuse a new engineer or an AI agent.
-- Document terms that are similar but not interchangeable.
-- Call out any overloaded words such as account, order, customer, approval, or publish.
+| Term | Meaning |
+| --- | --- |
+| Notifications Core | Canonical outbound communication control plane with delivery endpoints, preferences, attempts, and local provider routes. |
+| notifications.messages | Capability published by this plugin manifest. |
+| notifications.message-attempts | Capability published by this plugin manifest. |
+| notifications.delivery-endpoints | Capability published by this plugin manifest. |
+| notifications.delivery-preferences | Capability published by this plugin manifest. |
+| notifications.delivery-endpoints.register | Register a governed delivery endpoint that can be reused across outbound messages. |
+| notifications.delivery-preferences.upsert | Store channel-level enablement and digest preferences for a subject. |
+| notifications.messages.queue | Queue, schedule, or suppress a notification message before provider dispatch. |
+| notifications.messages.retry | Retry a previously failed notification message when the failure mode is recoverable. |
+| notifications.messages.cancel | Cancel a queued or scheduled message before it is delivered. |
+| notifications.messages.test-send | Send a one-off test message through the deterministic local provider path. |
+| Message queueing | Primary focus area for Notifications Core. |
+| Delivery attempts | Primary focus area for Notifications Core. |
+| Endpoint and preference governance | Primary focus area for Notifications Core. |
