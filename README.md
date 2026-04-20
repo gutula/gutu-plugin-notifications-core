@@ -1,8 +1,25 @@
 # Notifications Core
 
+<p align="center">
+  <img src="./docs/assets/gutu-mascot.png" alt="Gutu mascot" width="220" />
+</p>
+
 Canonical outbound communication control plane with delivery endpoints, preferences, attempts, and local provider routes.
 
 ![Maturity: Production Candidate](https://img.shields.io/badge/Maturity-Production%20Candidate-0f766e) ![Verification: Build+Typecheck+Lint+Test+Contracts+Migrations+Integration](https://img.shields.io/badge/Verification-Build%2BTypecheck%2BLint%2BTest%2BContracts%2BMigrations%2BIntegration-2563eb) ![DB: postgres+sqlite](https://img.shields.io/badge/DB-postgres%2Bsqlite-2563eb) ![Integration Model: Actions+Resources+Events+Jobs+UI](https://img.shields.io/badge/Integration%20Model-Actions%2BResources%2BEvents%2BJobs%2BUI-0f766e)
+
+## Part Of The Gutu Stack
+
+| Aspect | Value |
+| --- | --- |
+| Repo kind | First-party plugin |
+| Domain group | Operational Data |
+| Primary focus | message queueing, delivery attempts, endpoint and preference governance |
+| Best when | You need a governed domain boundary with explicit contracts and independent release cadence. |
+| Composes through | Actions+Resources+Events+Jobs+UI |
+
+- Gutu keeps plugins as independent repos with manifest-governed boundaries, compatibility channels, and verification lanes instead of hiding everything behind one giant mutable codebase.
+- This plugin is meant to compose through explicit actions, resources, jobs, workflows, and runtime envelopes, not through undocumented hook chains.
 
 ## What It Does Now
 

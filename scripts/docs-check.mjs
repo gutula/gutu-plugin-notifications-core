@@ -5,7 +5,7 @@ import { join, resolve } from "node:path";
 const repoRoot = resolve(import.meta.dirname, "..");
 const nestedRoot = join(repoRoot, "framework/builtin-plugins/notifications-core");
 const requiredInternalDocs = ["AGENT_CONTEXT.md","BUSINESS_RULES.md","EDGE_CASES.md","FLOWS.md","GLOSSARY.md","MANDATORY_STEPS.md"];
-const requiredReadmeHeadings = ["## What It Does Now","## Maturity","## Verified Capability Summary","## Dependency And Compatibility Summary","## Capability Matrix","## Quick Start For Integrators","## Current Test Coverage","## Known Boundaries And Non-Goals","## Recommended Next Milestones"];
+const requiredReadmeHeadings = ["## Part Of The Gutu Stack","## What It Does Now","## Maturity","## Verified Capability Summary","## Dependency And Compatibility Summary","## Capability Matrix","## Quick Start For Integrators","## Current Test Coverage","## Known Boundaries And Non-Goals","## Recommended Next Milestones"];
 const requiredDeveloperHeadings = ["## Purpose And Architecture Role","## Repo Map","## Manifest Contract","## Dependency Graph And Capability Requests","## Public Integration Surfaces","## Hooks, Events, And Orchestration","## Storage, Schema, And Migration Notes","## Failure Modes And Recovery","## Mermaid Flows","## Integration Recipes","## Test Matrix","## Current Truth And Recommended Next"];
 const requiredTodoHeadings = ["## Shipped Now","## Current Gaps","## Recommended Next","## Later / Optional"];
 const placeholderPatterns = [/This folder is the intended standalone git repository/i, /_Document\b[^_]*_/i, /_Explain\b[^_]*_/i, /_Describe\b[^_]*_/i, /_No workflows were discovered\._/i];
@@ -52,9 +52,17 @@ if ((readme.match(/img\.shields\.io/g) || []).length < 4) {
   failures.push("README.md must contain four local-status badges.");
 }
 
+if (!readme.includes("./docs/assets/gutu-mascot.png")) {
+  failures.push("README.md must reference the mascot image.");
+}
+
 for (const docName of requiredInternalDocs) {
   const content = requireFile(join(nestedRoot, "docs", docName));
   checkPlaceholders(content, "docs/" + docName);
+}
+
+if (!existsSync(join(repoRoot, "docs", "assets", "gutu-mascot.png"))) {
+  failures.push("docs/assets/gutu-mascot.png is missing.");
 }
 
 if (!packageTs.includes("id:")) {
