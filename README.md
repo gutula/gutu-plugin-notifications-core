@@ -29,7 +29,7 @@ Operates as the outbound communication control plane for deterministic local del
 - Owns 4 resource contracts: `notifications.delivery-endpoints`, `notifications.delivery-preferences`, `notifications.messages`, `notifications.message-attempts`.
 - Adds richer admin workspace contributions on top of the base UI surface.
 - Ships explicit SQL migration or rollback helpers alongside the domain model.
-- Service results already expose lifecycle events and follow-up jobs for orchestration-aware hosts.
+- Service results already expose lifecycle events and follow-up jobs for orchestration-aware hosts, including the first-party AI approval, escalation, and company-intake follow-up flows added in this rollout.
 
 ## Maturity
 

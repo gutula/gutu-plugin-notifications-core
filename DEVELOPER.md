@@ -96,7 +96,7 @@ Operates as the outbound communication control plane for deterministic local del
 This plugin should be integrated through **explicit commands/actions, resources, jobs, workflows, and the surrounding Gutu event runtime**. It must **not** be documented as a generic WordPress-style hook system unless such a hook API is explicitly exported.
 
 - Service results already return lifecycle event envelopes. Hosts should treat those envelopes as explicit orchestration outputs, not as incidental metadata.
-- Job surface: service-returned follow-up jobs.
+- Job surface: service-returned follow-up jobs now consumed by first-party AI approval, escalation, and company-intake recovery flows.
 - No plugin-owned workflow catalog is exported today.
 - Recommended composition pattern: invoke actions, read resources, then let the surrounding Gutu command/event/job runtime handle downstream automation.
 
@@ -205,7 +205,7 @@ console.log("action", registerDeliveryEndpointAction.id);
 - Owns 4 resource contracts: `notifications.delivery-endpoints`, `notifications.delivery-preferences`, `notifications.messages`, `notifications.message-attempts`.
 - Adds richer admin workspace contributions on top of the base UI surface.
 - Ships explicit SQL migration or rollback helpers alongside the domain model.
-- Service results already expose lifecycle events and follow-up jobs for orchestration-aware hosts.
+- Service results already expose lifecycle events and follow-up jobs for orchestration-aware hosts, including first-party AI approval, escalation, and company-intake follow-up consumers.
 
 ### Current gaps
 
