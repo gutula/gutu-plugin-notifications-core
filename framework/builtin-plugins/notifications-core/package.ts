@@ -5,6 +5,12 @@ export default definePackage({
   kind: "app",
   version: "0.1.0",
   displayName: "Notifications Core",
+  defaultCategory: {
+    id: "business",
+    label: "Business",
+    subcategoryId: "communications",
+    subcategoryLabel: "Communications"
+  },
   description: "Canonical outbound communication control plane with delivery endpoints, preferences, attempts, and local provider routes.",
   extends: [],
   dependsOn: ["auth-core","org-tenant-core","role-policy-core","audit-core"],

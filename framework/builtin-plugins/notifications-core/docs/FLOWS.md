@@ -9,6 +9,10 @@
 - `notifications.messages.cancel`: Cancel a queued or scheduled message before it is delivered.
 - `notifications.messages.test-send`: Send a one-off test message through the deterministic local provider path.
 
+## Operational scenario matrix
+
+- No operational scenario catalog is exported today.
+
 ## Action-level flows
 
 ### `notifications.delivery-endpoints.register`
@@ -172,4 +176,5 @@ Forbidden shortcuts:
 - Direct dependencies: `auth-core`, `org-tenant-core`, `role-policy-core`, `audit-core`
 - Requested capabilities: `ui.register.admin`, `api.rest.mount`, `data.write.notifications`, `jobs.dispatch.notifications`, `events.publish.notifications`
 - Integration model: Actions+Resources+Events+Jobs+UI
+- ERPNext doctypes used as parity references: none declared
 - Recovery ownership should stay with the host orchestration layer when the plugin does not explicitly export jobs, workflows, or lifecycle events.

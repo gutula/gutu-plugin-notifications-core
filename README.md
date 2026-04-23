@@ -14,6 +14,7 @@ Canonical outbound communication control plane with delivery endpoints, preferen
 | --- | --- |
 | Repo kind | First-party plugin |
 | Domain group | Operational Data |
+| Default category | Business / Communications |
 | Primary focus | message queueing, delivery attempts, endpoint and preference governance |
 | Best when | You need a governed domain boundary with explicit contracts and independent release cadence. |
 | Composes through | Actions+Resources+Events+Jobs+UI |
@@ -29,7 +30,7 @@ Operates as the outbound communication control plane for deterministic local del
 - Owns 4 resource contracts: `notifications.delivery-endpoints`, `notifications.delivery-preferences`, `notifications.messages`, `notifications.message-attempts`.
 - Adds richer admin workspace contributions on top of the base UI surface.
 - Ships explicit SQL migration or rollback helpers alongside the domain model.
-- Service results already expose lifecycle events and follow-up jobs for orchestration-aware hosts, including the first-party AI approval, escalation, and company-intake follow-up flows added in this rollout.
+- Service results already expose lifecycle events and follow-up jobs for orchestration-aware hosts.
 
 ## Maturity
 
@@ -39,7 +40,8 @@ This tier is justified because unit coverage exists, contract coverage exists, i
 
 ## Verified Capability Summary
 
-- Group: **Operational Data**
+- Domain group: **Operational Data**
+- Default category: **Business / Communications**
 - Verification surface: **Build+Typecheck+Lint+Test+Contracts+Migrations+Integration**
 - Tests discovered: **4** total files across unit, contract, integration, migration lanes
 - Integration model: **Actions+Resources+Events+Jobs+UI**
@@ -68,6 +70,12 @@ This tier is justified because unit coverage exists, contract coverage exists, i
 | Jobs | 0 | No job catalog exported |
 | Workflows | 0 | No workflow catalog exported |
 | UI | Present | base UI surface, admin contributions |
+| Owned Entities | 0 | No explicit domain catalog yet |
+| Reports | 0 | No explicit report catalog yet |
+| Exception Queues | 0 | No explicit exception queues yet |
+| Operational Scenarios | 0 | No explicit operational scenario matrix yet |
+| Settings Surfaces | 0 | No explicit settings surface catalog yet |
+| ERPNext Refs | 0 | No direct ERPNext reference mapping declared |
 
 ## Quick Start For Integrators
 

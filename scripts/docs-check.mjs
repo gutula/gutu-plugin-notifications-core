@@ -65,7 +65,7 @@ if (!existsSync(join(repoRoot, "docs", "assets", "gutu-mascot.png"))) {
   failures.push("docs/assets/gutu-mascot.png is missing.");
 }
 
-if (!packageTs.includes("id:")) {
+if (!/["']?id["']?\s*:/.test(packageTs)) {
   failures.push("package.ts is missing the plugin id field.");
 }
 

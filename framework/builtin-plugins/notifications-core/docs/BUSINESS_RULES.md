@@ -5,12 +5,18 @@
 - The plugin remains authoritative only for the data declared in `notifications-core` and its owned resource set.
 - Integrators must respect the declared permission and idempotency semantics of each exported action.
 - Cross-plugin automation must use explicit commands, resources, jobs, or workflows instead of hidden coupling.
+- ERP parity references are tracked against: no direct ERPNext module mapping declared.
 
 ## Lifecycle notes
 
 - This plugin currently exports 6 action(s), 4 resource(s), 0 job definition(s), and 0 workflow definition(s).
+- The domain catalog currently tracks 0 owned entity surface(s), 0 report surface(s), and 0 exception queue(s).
 - Durable data behavior is bounded by the declared schema and compatibility contract: postgres, sqlite.
 - Maturity is currently assessed as `Production Candidate`, which means the documentation and operational promises must stay within that boundary.
+
+## Settings and governance surfaces
+
+- No explicit settings surface catalog is exported today.
 
 ## Actor expectations
 

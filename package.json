@@ -6,15 +6,16 @@
     "framework/builtin-plugins/*"
   ],
   "scripts": {
-    "build": "bun run --cwd framework/builtin-plugins/notifications-core build",
-    "typecheck": "bun run --cwd framework/builtin-plugins/notifications-core typecheck",
-    "lint": "bun run --cwd framework/builtin-plugins/notifications-core lint",
-    "test": "bun run --cwd framework/builtin-plugins/notifications-core test",
-    "test:contracts": "bun run --cwd framework/builtin-plugins/notifications-core test:contracts",
-    "test:unit": "bun run --cwd framework/builtin-plugins/notifications-core test:unit",
-    "test:integration": "bun test --cwd framework/builtin-plugins/notifications-core tests/integration",
-    "test:migrations": "bun test --cwd framework/builtin-plugins/notifications-core tests/migrations",
+    "build": "cd framework/builtin-plugins/notifications-core && bun run build",
+    "typecheck": "cd framework/builtin-plugins/notifications-core && bun run typecheck",
+    "lint": "cd framework/builtin-plugins/notifications-core && bun run lint",
+    "test": "cd framework/builtin-plugins/notifications-core && bun run test",
+    "test:contracts": "cd framework/builtin-plugins/notifications-core && bun run test:contracts",
+    "test:unit": "cd framework/builtin-plugins/notifications-core && bun run test:unit",
+    "test:integration": "cd framework/builtin-plugins/notifications-core && bun test tests/integration",
+    "test:migrations": "cd framework/builtin-plugins/notifications-core && bun test tests/migrations",
     "docs:summary": "node scripts/docs-summary.mjs",
-    "docs:check": "node scripts/docs-check.mjs"
+    "docs:check": "node scripts/docs-check.mjs",
+    "ci": "bun run build && bun run typecheck && bun run lint && bun run test && bun run docs:check"
   }
 }

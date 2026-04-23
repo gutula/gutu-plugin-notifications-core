@@ -40,6 +40,8 @@ Operates as the outbound communication control plane for deterministic local del
 | Package Name | `@plugins/notifications-core` |
 | Manifest ID | `notifications-core` |
 | Display Name | Notifications Core |
+| Domain Group | Operational Data |
+| Default Category | Business / Communications |
 | Version | `0.1.0` |
 | Kind | `app` |
 | Trust Tier | `first-party` |
@@ -96,7 +98,7 @@ Operates as the outbound communication control plane for deterministic local del
 This plugin should be integrated through **explicit commands/actions, resources, jobs, workflows, and the surrounding Gutu event runtime**. It must **not** be documented as a generic WordPress-style hook system unless such a hook API is explicitly exported.
 
 - Service results already return lifecycle event envelopes. Hosts should treat those envelopes as explicit orchestration outputs, not as incidental metadata.
-- Job surface: service-returned follow-up jobs now consumed by first-party AI approval, escalation, and company-intake recovery flows.
+- Job surface: service-returned follow-up jobs.
 - No plugin-owned workflow catalog is exported today.
 - Recommended composition pattern: invoke actions, read resources, then let the surrounding Gutu command/event/job runtime handle downstream automation.
 
@@ -205,11 +207,11 @@ console.log("action", registerDeliveryEndpointAction.id);
 - Owns 4 resource contracts: `notifications.delivery-endpoints`, `notifications.delivery-preferences`, `notifications.messages`, `notifications.message-attempts`.
 - Adds richer admin workspace contributions on top of the base UI surface.
 - Ships explicit SQL migration or rollback helpers alongside the domain model.
-- Service results already expose lifecycle events and follow-up jobs for orchestration-aware hosts, including first-party AI approval, escalation, and company-intake follow-up consumers.
+- Service results already expose lifecycle events and follow-up jobs for orchestration-aware hosts.
 
 ### Current gaps
 
-- No extra gaps were discovered beyond the plugin’s declared boundaries.
+- The repo does not yet export a domain parity catalog with owned entities, reports, settings surfaces, and exception queues.
 
 ### Recommended next
 

@@ -8,6 +8,10 @@
 - Admin contribution regressions can hide critical operator entrypoints even when the core action/resource contracts still compile.
 - Downstream automation must not infer undocumented hooks or side effects from implementation details.
 
+## Domain-specific edge cases
+
+- No domain-specific edge-case catalog is exported yet.
+
 ## Data anomalies
 
 - Duplicate or replayed requests should be evaluated against the action’s documented idempotency behavior rather than guessed at runtime.

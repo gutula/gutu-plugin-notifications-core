@@ -8,11 +8,11 @@
 - Owns 4 resource contracts: `notifications.delivery-endpoints`, `notifications.delivery-preferences`, `notifications.messages`, `notifications.message-attempts`.
 - Adds richer admin workspace contributions on top of the base UI surface.
 - Ships explicit SQL migration or rollback helpers alongside the domain model.
-- Service results already expose lifecycle events and follow-up jobs for orchestration-aware hosts, including the first-party AI approval, escalation, and company-intake follow-up flows added in this rollout.
+- Service results already expose lifecycle events and follow-up jobs for orchestration-aware hosts.
 
 ## Current Gaps
 
-- No additional gaps were identified beyond the plugin’s stated non-goals.
+- The repo does not yet export a domain parity catalog with owned entities, reports, settings surfaces, and exception queues.
 
 ## Recommended Next
 
