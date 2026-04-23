@@ -56,6 +56,11 @@ Operates as the outbound communication control plane for deterministic local del
 | Field | Value |
 | --- | --- |
 | Depends On | `auth-core`, `org-tenant-core`, `role-policy-core`, `audit-core` |
+| Recommended Plugins | None |
+| Capability Enhancing | None |
+| Integration Only | None |
+| Suggested Packs | None |
+| Standalone Supported | Yes |
 | Requested Capabilities | `ui.register.admin`, `api.rest.mount`, `data.write.notifications`, `jobs.dispatch.notifications`, `events.publish.notifications` |
 | Provides Capabilities | `notifications.messages`, `notifications.message-attempts`, `notifications.delivery-endpoints`, `notifications.delivery-preferences` |
 | Owns Data | `notifications.messages`, `notifications.message-attempts`, `notifications.delivery-endpoints`, `notifications.delivery-preferences` |

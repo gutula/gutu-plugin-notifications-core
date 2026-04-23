@@ -55,11 +55,26 @@ This tier is justified because unit coverage exists, contract coverage exists, i
 | Manifest ID | `notifications-core` |
 | Repo | [gutu-plugin-notifications-core](https://github.com/gutula/gutu-plugin-notifications-core) |
 | Depends On | `auth-core`, `org-tenant-core`, `role-policy-core`, `audit-core` |
+| Recommended Plugins | None |
+| Capability Enhancing | None |
+| Integration Only | None |
+| Suggested Packs | None |
+| Standalone Supported | Yes |
 | Requested Capabilities | `ui.register.admin`, `api.rest.mount`, `data.write.notifications`, `jobs.dispatch.notifications`, `events.publish.notifications` |
 | Provided Capabilities | `notifications.messages`, `notifications.message-attempts`, `notifications.delivery-endpoints`, `notifications.delivery-preferences` |
 | Runtime | bun>=1.3.12 |
 | Database | postgres, sqlite |
 | Integration Model | Actions+Resources+Events+Jobs+UI |
+
+## Installation Guidance
+
+- Required plugins: `auth-core`, `org-tenant-core`, `role-policy-core`, `audit-core`
+- Recommended plugins: none
+- Capability-enhancing plugins: none
+- Integration-only plugins: none
+- Suggested packs: none
+- Standalone supported: yes
+
 
 ## Capability Matrix
 
