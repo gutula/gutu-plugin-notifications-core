@@ -1,7 +1,61 @@
 {
   "extends": "../../../tsconfig.base.json",
   "compilerOptions": {
-    "noEmit": true
+    "noEmit": true,
+    "baseUrl": ".",
+    "paths": {
+      "@gutu-host": [
+        "../../../../../admin-panel/backend/src/host/index.ts"
+      ],
+      "@gutu-host/*": [
+        "../../../../../admin-panel/backend/src/host/*"
+      ],
+      "@gutu-plugin/accounting-core": [
+        "../../../../gutu-plugin-accounting-core/framework/builtin-plugins/accounting-core/src/host-plugin/index.ts"
+      ],
+      "@gutu-plugin/sales-core": [
+        "../../../../gutu-plugin-sales-core/framework/builtin-plugins/sales-core/src/host-plugin/index.ts"
+      ],
+      "@gutu-plugin/inventory-core": [
+        "../../../../gutu-plugin-inventory-core/framework/builtin-plugins/inventory-core/src/host-plugin/index.ts"
+      ],
+      "@gutu-plugin/manufacturing-core": [
+        "../../../../gutu-plugin-manufacturing-core/framework/builtin-plugins/manufacturing-core/src/host-plugin/index.ts"
+      ],
+      "@gutu-plugin/pricing-tax-core": [
+        "../../../../gutu-plugin-pricing-tax-core/framework/builtin-plugins/pricing-tax-core/src/host-plugin/index.ts"
+      ],
+      "@gutu-plugin/treasury-core": [
+        "../../../../gutu-plugin-treasury-core/framework/builtin-plugins/treasury-core/src/host-plugin/index.ts"
+      ],
+      "@gutu-plugin/e-invoicing-core": [
+        "../../../../gutu-plugin-e-invoicing-core/framework/builtin-plugins/e-invoicing-core/src/host-plugin/index.ts"
+      ],
+      "@gutu-plugin/hr-payroll-core": [
+        "../../../../gutu-plugin-hr-payroll-core/framework/builtin-plugins/hr-payroll-core/src/host-plugin/index.ts"
+      ],
+      "@gutu-plugin/notifications-core": [
+        "../../../../gutu-plugin-notifications-core/framework/builtin-plugins/notifications-core/src/host-plugin/index.ts"
+      ],
+      "@gutu-plugin/template-core": [
+        "../../../../gutu-plugin-template-core/framework/builtin-plugins/template-core/src/host-plugin/index.ts"
+      ],
+      "@gutu-plugin/forms-core": [
+        "../../../../gutu-plugin-forms-core/framework/builtin-plugins/forms-core/src/host-plugin/index.ts"
+      ],
+      "@gutu-plugin/integration-core": [
+        "../../../../gutu-plugin-integration-core/framework/builtin-plugins/integration-core/src/host-plugin/index.ts"
+      ],
+      "@gutu-plugin/analytics-bi-core": [
+        "../../../../gutu-plugin-analytics-bi-core/framework/builtin-plugins/analytics-bi-core/src/host-plugin/index.ts"
+      ],
+      "@/*": [
+        "../../../../../admin-panel/src/*"
+      ],
+      "@gutu-host/plugin-ui-contract": [
+        "../../../../../admin-panel/src/host/plugin-ui-contract.ts"
+      ]
+    }
   },
   "include": [
     "src/**/*.ts",
@@ -10,6 +64,8 @@
     "tests/**/*.tsx",
     "package.ts",
     "db/**/*.ts",
-    "bundle.lock.ts"
+    "bundle.lock.ts",
+    "src/host-plugin/ui/**/*.tsx",
+    "src/host-plugin/ui/**/*.ts"
   ]
 }

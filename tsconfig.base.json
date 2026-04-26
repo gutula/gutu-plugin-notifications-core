@@ -575,6 +575,51 @@
       ],
       "@apps/playground": [
         "../../apps/gutu-app-playground/apps/playground/src/index.ts"
+      ],
+      "@gutu-host": [
+        "../../admin-panel/backend/src/host/index.ts"
+      ],
+      "@gutu-host/*": [
+        "../../admin-panel/backend/src/host/*"
+      ],
+      "@gutu-plugin/accounting-core": [
+        "../../plugins/gutu-plugin-accounting-core/framework/builtin-plugins/accounting-core/src/host-plugin/index.ts"
+      ],
+      "@gutu-plugin/sales-core": [
+        "../../plugins/gutu-plugin-sales-core/framework/builtin-plugins/sales-core/src/host-plugin/index.ts"
+      ],
+      "@gutu-plugin/inventory-core": [
+        "../../plugins/gutu-plugin-inventory-core/framework/builtin-plugins/inventory-core/src/host-plugin/index.ts"
+      ],
+      "@gutu-plugin/manufacturing-core": [
+        "../../plugins/gutu-plugin-manufacturing-core/framework/builtin-plugins/manufacturing-core/src/host-plugin/index.ts"
+      ],
+      "@gutu-plugin/pricing-tax-core": [
+        "../../plugins/gutu-plugin-pricing-tax-core/framework/builtin-plugins/pricing-tax-core/src/host-plugin/index.ts"
+      ],
+      "@gutu-plugin/treasury-core": [
+        "../../plugins/gutu-plugin-treasury-core/framework/builtin-plugins/treasury-core/src/host-plugin/index.ts"
+      ],
+      "@gutu-plugin/e-invoicing-core": [
+        "../../plugins/gutu-plugin-e-invoicing-core/framework/builtin-plugins/e-invoicing-core/src/host-plugin/index.ts"
+      ],
+      "@gutu-plugin/hr-payroll-core": [
+        "../../plugins/gutu-plugin-hr-payroll-core/framework/builtin-plugins/hr-payroll-core/src/host-plugin/index.ts"
+      ],
+      "@gutu-plugin/notifications-core": [
+        "../../plugins/gutu-plugin-notifications-core/framework/builtin-plugins/notifications-core/src/host-plugin/index.ts"
+      ],
+      "@gutu-plugin/template-core": [
+        "../../plugins/gutu-plugin-template-core/framework/builtin-plugins/template-core/src/host-plugin/index.ts"
+      ],
+      "@gutu-plugin/forms-core": [
+        "../../plugins/gutu-plugin-forms-core/framework/builtin-plugins/forms-core/src/host-plugin/index.ts"
+      ],
+      "@gutu-plugin/integration-core": [
+        "../../plugins/gutu-plugin-integration-core/framework/builtin-plugins/integration-core/src/host-plugin/index.ts"
+      ],
+      "@gutu-plugin/analytics-bi-core": [
+        "../../plugins/gutu-plugin-analytics-bi-core/framework/builtin-plugins/analytics-bi-core/src/host-plugin/index.ts"
       ]
     },
     "jsx": "react-jsx",
