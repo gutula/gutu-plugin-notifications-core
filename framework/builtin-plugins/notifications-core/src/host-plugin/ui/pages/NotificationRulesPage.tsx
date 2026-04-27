@@ -26,6 +26,7 @@ import { PageHeader } from "@/admin-primitives/PageHeader";
 import { Card, CardContent } from "@/admin-primitives/Card";
 import { EmptyState } from "@/admin-primitives/EmptyState";
 import { useUiResources } from "@/runtime/useUiMetadata";
+import { FieldPathPicker } from "@/admin-primitives/pickers";
 import { Button } from "@/primitives/Button";
 import { Input } from "@/primitives/Input";
 import { Label } from "@/primitives/Label";
@@ -296,18 +297,24 @@ interface ConditionsRowProps {
   leaf: ConditionLeaf;
   onChange: (next: ConditionLeaf) => void;
   onRemove: () => void;
+  /** Active resource — feeds the FieldPathPicker's autocomplete with
+   *  the resource's known field metadata + sample-record keys. */
+  resource: string;
 }
 
-function ConditionRow({ leaf, onChange, onRemove }: ConditionsRowProps) {
+function ConditionRow({ leaf, onChange, onRemove, resource }: ConditionsRowProps) {
   const needsValue = leaf.op !== "truthy" && leaf.op !== "falsy";
   return (
     <div className="flex items-center gap-2">
-      <Input
-        placeholder="field (e.g. status, total, customer.id)"
-        value={leaf.field}
-        onChange={(e) => onChange({ ...leaf, field: e.target.value })}
-        className="font-mono text-xs flex-1 min-w-0"
-      />
+      <div className="flex-1 min-w-0">
+        <FieldPathPicker
+          resource={resource}
+          value={leaf.field}
+          onChange={(v) => onChange({ ...leaf, field: v })}
+          placeholder="field (e.g. status, total, customer.id)"
+          extraSuggestions={["previous." + (leaf.field || "")]}
+        />
+      </div>
       <Select value={leaf.op} onValueChange={(v) => onChange({ ...leaf, op: v as never })}>
         <SelectTrigger className="w-24 shrink-0">
           <SelectValue />
@@ -534,6 +541,7 @@ function RuleDialog({ resource, initial, open, onOpenChange, onSaved }: DialogPr
                   <ConditionRow
                     key={i}
                     leaf={c}
+                    resource={resource}
                     onChange={(next) =>
                       setConditions((list) => list.map((x, idx) => (idx === i ? next : x)))
                     }
