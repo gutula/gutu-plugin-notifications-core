@@ -25,6 +25,7 @@ import {
 import { PageHeader } from "@/admin-primitives/PageHeader";
 import { Card, CardContent } from "@/admin-primitives/Card";
 import { EmptyState } from "@/admin-primitives/EmptyState";
+import { useUiResources } from "@/runtime/useUiMetadata";
 import { Button } from "@/primitives/Button";
 import { Input } from "@/primitives/Input";
 import { Label } from "@/primitives/Label";
@@ -111,18 +112,40 @@ function ResourceRailImpl({
   active: string;
   onPick: (id: string) => void;
 }) {
+  const { data: uiResources } = useUiResources();
+  // Live registry comes first; fall back to the seeded list when no
+  // plugin has registered yet (cold start). Filter writable resources
+  // — read-only ones can't have notification rules anyway.
+  type Row = { id: string; label: string; category: string };
+  const fromRegistry: Row[] = React.useMemo(
+    () => uiResources
+      .filter((r) => (r.actions ?? []).includes("write"))
+      .map((r) => ({
+        id: r.id,
+        label: r.label ?? r.id,
+        category: r.group ?? "Other",
+      })),
+    [uiResources],
+  );
+  const merged: Row[] = React.useMemo(() => {
+    const seen = new Set(fromRegistry.map((r) => r.id));
+    const fallback = RESOURCES.filter((r) => !seen.has(r.id));
+    return [...fromRegistry, ...fallback].sort((a, b) =>
+      (a.category + a.label).localeCompare(b.category + b.label),
+    );
+  }, [fromRegistry]);
   const [search, setSearch] = React.useState("");
   const filtered = React.useMemo(() => {
     const q = search.trim().toLowerCase();
-    if (!q) return RESOURCES;
-    return RESOURCES.filter(
+    if (!q) return merged;
+    return merged.filter(
       (r) => r.id.toLowerCase().includes(q) || r.label.toLowerCase().includes(q),
     );
-  }, [search]);
-  const byCat = new Map<string, typeof RESOURCES>();
+  }, [merged, search]);
+  const byCat = new Map<string, Row[]>();
   for (const r of filtered) {
-    const list = (byCat.get(r.category) ?? []) as typeof RESOURCES;
-    byCat.set(r.category, [...list, r] as typeof RESOURCES);
+    const list = byCat.get(r.category) ?? [];
+    byCat.set(r.category, [...list, r]);
   }
   return (
     <aside className="flex flex-col gap-2 min-h-0">
