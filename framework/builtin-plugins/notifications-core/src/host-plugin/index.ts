@@ -62,6 +62,10 @@ export const hostPlugin: HostPlugin = {
   routes: [
     { mountPath: "/notification-rules", router: notificationRuleRoutes },
   ],
+  resources: [
+    "notifications.delivery",
+    "notifications.template",
+  ],
   start: (ctx) => {
     // Publish the dispatch capability to the cross-plugin registry so
     // other plugins (workflow actions, integration triggers, AI assist
